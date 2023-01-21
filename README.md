@@ -39,13 +39,14 @@ US-2016 and US-2020 elections. The respective application datasets were found in
 2. https://www.kaggle.com/datasets/manchunhui/us-election-2020-tweets
 
 
+-----------
 
 
 
 ### Project Organization
 
 
--Descriptor directory
+* Descriptor directory
 
 
   Descriptor_getter directory contains the following:
@@ -85,7 +86,7 @@ The output csv is saved in the same directory with the input csv with "_results"
 
 
 
--Forecasting directory
+* Forecasting directory
 
 The same procedure/code was executed for both the US-2016 and US-2020 data. For saving space,
 I included only the US-2016 experiment. Specifically you'll find:
@@ -99,6 +100,7 @@ I included only the US-2016 experiment. Specifically you'll find:
 
 
 
+-----------------
 
 
 Steps to use this code for forecasting:  
@@ -193,6 +195,7 @@ For more details regarding the execution flow and the products of it,
 you can check - https://github.com/HansikaPH/time-series-forecasting
 
 
+------------------------
 
 
 This project was part of my diploma thesis - - and was published in the scientific journal "Social Network Analysis and Mining" - https://link.springer.com/article/10.1007/s13278-022-00922-8.
