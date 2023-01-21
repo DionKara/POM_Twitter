@@ -10,6 +10,8 @@ we chose Twitter as our data source and used deep neural networks to examine twe
 We actually extract four different semantic entities: polarity, offensiveness, figurative language, bias.
 This is achieved by the respective four neural classifiers after training them with properly annotated tweet datasets.  
   
+  
+  
 The **architectures** we employed were found in:
 
 1. https://github.com/efpm04013/finalexp34 , which incorporates a parallel combination of CNN and Bi-LSTM.
