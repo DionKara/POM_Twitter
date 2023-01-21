@@ -49,7 +49,7 @@ US-2016 and US-2020 elections. The respective application datasets were found in
 * Descriptor directory
 
 
-  Descriptor_getter directory contains the following:
+-Descriptor_getter directory contains the following:
 
 1. Input_dataset - A sample of cleaned tweets from the application datasets.
 
@@ -66,13 +66,11 @@ US-2016 and US-2020 elections. The respective application datasets were found in
 
 
 
-  The two notebooks named US_2016/2020_visualizations.ipynb were used to produce some fruitful
+- The two notebooks named US_2016/2020_visualizations.ipynb were used to produce some fruitful
 plots of the extracted descriptors as time series. 
 
 
-
----------------
-
+---
 
 
 How to get the descriptors:
@@ -84,6 +82,7 @@ Run on cmd : python tweet_descriptor_getter.py Input_dataset/Cleaned_dataset/201
 The output csv is saved in the same directory with the input csv with "_results" added to the filename
 
 
+-----------------------------
 
 
 * Forecasting directory
@@ -100,7 +99,7 @@ I included only the US-2016 experiment. Specifically you'll find:
 
 
 
------------------
+---
 
 
 Steps to use this code for forecasting:  
