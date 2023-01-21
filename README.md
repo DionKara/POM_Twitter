@@ -206,7 +206,7 @@ you can check - https://github.com/HansikaPH/time-series-forecasting
 ------------------------
 
 
-This project was part of my diploma thesis - - and was published in the scientific journal "Social Network Analysis and Mining" - https://link.springer.com/article/10.1007/s13278-022-00922-8.
+This project was part of my diploma thesis - https://github.com/DionKara/SA_Diploma_Thesis - and was published in the scientific journal "Social Network Analysis and Mining" - https://link.springer.com/article/10.1007/s13278-022-00922-8.
 
 
 
