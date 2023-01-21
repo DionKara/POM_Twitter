@@ -53,7 +53,7 @@ US-2016 and US-2020 elections. The respective application datasets were found in
 * **Descriptor directory**
 
 
-  -*Descriptor_getter* directory contains the following:
+-*Descriptor_getter* directory contains the following:
 
 1. Input_dataset - A sample of cleaned tweets from the application datasets.
 
@@ -70,7 +70,7 @@ US-2016 and US-2020 elections. The respective application datasets were found in
 </br>
 
 
-   -The two notebooks named US_2016/2020_visualizations.ipynb were used to produce some fruitful
+-The two notebooks named US_2016/2020_visualizations.ipynb were used to produce some fruitful
 plots of the extracted descriptors as time series.  
   
 </br>
