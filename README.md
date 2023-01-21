@@ -8,9 +8,7 @@
 The goal of this project was to monitor the public opinion regarding presidential elections. For this purpose,
 we chose Twitter as our data source and used deep neural networks to examine tweets semantically.
 We actually extract four different semantic entities: polarity, offensiveness, figurative language, bias.
-This is achieved by the respective four neural classifiers after training them with properly annotated tweet datasets.  
-  
-  
+This is achieved by the respective four neural classifiers after training them with properly annotated tweet datasets.
   
 The **architectures** we employed were found in:
 
