@@ -9,17 +9,17 @@ The goal of this project was to monitor the public opinion regarding presidentia
 we chose Twitter as our data source and used deep neural networks to examine tweets semantically.
 We actually extract four different semantic entities: polarity, offensiveness, figurative language, bias.
 This is achieved by the respective four neural classifiers after training them with properly annotated tweet datasets.  
-
+  
 The **architectures** we employed were found in:
 
 1. https://github.com/efpm04013/finalexp34 , which incorporates a parallel combination of CNN and Bi-LSTM.
 
 2. https://github.com/DheerajKumar97/US-2020-Election-Campaign-Youtube-Comments-Sentiment-Analysis-RNN-Bidirect--lstm-Flask-Deployment , which incorporates a Bi-LSTM along with a stack of Fully-Connected layers.  
-
+  
 
 We name the four-element vector extracted for each tweet **descriptor**. After we get all the descriptors for the
 selected tweet dataset (using the trained models), we aggregate them daily (mean, median) to create time series.  
-
+  
 Finally we apply **time series forecasting** to the extracted data. The model used to that end was found in:
 
 1. https://github.com/HansikaPH/time-series-forecasting , which incorporates a simple LSTM.
