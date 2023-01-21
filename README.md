@@ -1,7 +1,7 @@
 
 ## Public opinion monitoring through collective semantic analysis of tweets  
 
-
+</br>
 
 
 ### Overview
@@ -10,24 +10,29 @@ The goal of this project was to monitor the public opinion regarding presidentia
 we chose Twitter as our data source and used deep neural networks to examine tweets semantically.
 We actually extract four different semantic entities: polarity, offensiveness, figurative language, bias.
 This is achieved by the respective four neural classifiers after training them with properly annotated tweet datasets.
-  
+
+</br>
+
 The **architectures** we employed were found in:
 
 1. https://github.com/efpm04013/finalexp34 , which incorporates a parallel combination of CNN and Bi-LSTM.
 
 2. https://github.com/DheerajKumar97/US-2020-Election-Campaign-Youtube-Comments-Sentiment-Analysis-RNN-Bidirect--lstm-Flask-Deployment , which incorporates a Bi-LSTM along with a stack of Fully-Connected layers.  
   
+</br>
 
 We name the four-element vector extracted for each tweet **descriptor**. After we get all the descriptors for the
 selected tweet dataset (using the trained models), we aggregate them daily (mean, median) to create time series.  
-  
+
+</br>
+
 Finally we apply **time series forecasting** to the extracted data. The model used to that end was found in:
 
 1. https://github.com/HansikaPH/time-series-forecasting , which incorporates a simple LSTM.
 
 The model produces forecasts for a **7-day horizon**, after being fed a 9-day input window of past observations/data.  
 
-
+</br>
 
 The mechanism explained above is generic and can be applied in whichever event the user is interested in
 monitoring the public opinion. 
@@ -50,7 +55,7 @@ US-2016 and US-2020 elections. The respective application datasets were found in
 * **Descriptor directory**
 
 
-  -*Descriptor_getter* directory contains the following:
+ -*Descriptor_getter* directory contains the following:
 
 1. Input_dataset - A sample of cleaned tweets from the application datasets.
 
@@ -64,13 +69,14 @@ US-2016 and US-2020 elections. The respective application datasets were found in
 
 5. cleaning_script.ipynb - script for cleaning the original US-2016 application dataset
 
+</br>
 
 
-
-  - The two notebooks named US_2016/2020_visualizations.ipynb were used to produce some fruitful
+ - The two notebooks named US_2016/2020_visualizations.ipynb were used to produce some fruitful
 plots of the extracted descriptors as time series.  
   
-  
+</br>
+
 
 *How to get the descriptors:*
 
@@ -96,6 +102,7 @@ I included only the US-2016 experiment. Specifically you'll find:
 3. forecasting results - results obtained from applying forecasting to US-2016 descriptors time series (testing was done on the last 7 days of the time series).  
   
   
+</br>
 
 
 
@@ -110,9 +117,11 @@ to be equal with the forecast horizon parameter chosen for the forecasting - in 
 
 **IMPORTANT**: In results\optimized_configurations directory there is a file with the optimized configs that we use for our model, so make sure you will not delete that file.   
 
+</br>
 
 
 1. In project root directory (ipath = input path, opath = output path) , (i used R-4.1.0):   
+</br>
 
 a. Run: "C:\Program Files\R\R-4.1.0\bin\Rscript.exe" preprocess_scripts/kaggle_dataset_preprocess.R
 
@@ -152,6 +161,7 @@ Run: python create_tfrecords.py , to create the 3 binary files from the 3 previo
 ipath=./datasets/text_data/moving_window/ , opath=./datasets/binary_data/moving_window/  
   
   
+</br>
 
 2. In project root directory:
 
@@ -161,6 +171,7 @@ Run: python generic_model_trainer.py --dataset_name dokimh --contain_zero_values
 opath= results/rnn_forecasts  
 
 
+</br>
 
 3. In utility_scripts/error_summary_scripts directory: 
 
@@ -169,6 +180,7 @@ Run: python ensembling_forecasts.py --dataset_name dokimh
 opath= results/ensemble_rnn_forecasts  
 
 
+</br>
 
 4. In project root directory:
 
@@ -176,6 +188,7 @@ Run: "C:\Program Files\R\R-4.1.0\bin\Rscript.exe" error_calculator/moving_window
 
 opath= results/ensemble_errors  
 
+</br>
 
 
 5. In utility_scripts/error_summary_scripts directory:
@@ -184,6 +197,7 @@ Run: python error_summary_generator.py --dataset_name dokimh --is_merged_cluster
 
 opath= results/ensemble_errors/aggregate_errors  
   
+</br>
 
 
 
