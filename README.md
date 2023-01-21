@@ -1,5 +1,5 @@
 
-## Public opinion monitoring through collective semantic analysis of tweets
+## Public opinion monitoring through collective semantic analysis of tweets  
 
 
 
@@ -8,30 +8,30 @@
 The goal of this project was to monitor the public opinion regarding presidential elections. For this purpose,
 we chose Twitter as our data source and used deep neural networks to examine tweets semantically.
 We actually extract four different semantic entities: polarity, offensiveness, figurative language, bias.
-This is achieved by the respective four neural classifiers after training them with properly annotated tweet datasets.
+This is achieved by the respective four neural classifiers after training them with properly annotated tweet datasets.  
 
-The architectures we employed were found in:
+The **architectures** we employed were found in:
 
 1. https://github.com/efpm04013/finalexp34 , which incorporates a parallel combination of CNN and Bi-LSTM.
 
-2. https://github.com/DheerajKumar97/US-2020-Election-Campaign-Youtube-Comments-Sentiment-Analysis-RNN-Bidirect--lstm-Flask-Deployment , which incorporates a Bi-LSTM along with a stack of Fully-Connected layers.
+2. https://github.com/DheerajKumar97/US-2020-Election-Campaign-Youtube-Comments-Sentiment-Analysis-RNN-Bidirect--lstm-Flask-Deployment , which incorporates a Bi-LSTM along with a stack of Fully-Connected layers.  
 
 
-We name the four-element vector extracted for each tweet descriptor. After we get all the descriptors for the
-selected tweet dataset (using the trained models), we aggregate them daily (mean, median) to create time series.
+We name the four-element vector extracted for each tweet **descriptor**. After we get all the descriptors for the
+selected tweet dataset (using the trained models), we aggregate them daily (mean, median) to create time series.  
 
-Finally we apply time series forecasting to the extracted data. The model used to that end was found in:
+Finally we apply **time series forecasting** to the extracted data. The model used to that end was found in:
 
 1. https://github.com/HansikaPH/time-series-forecasting , which incorporates a simple LSTM.
 
-The model produces forecasts for a 7-day horizon, after being fed a 9-day input window of past observations/data.
+The model produces forecasts for a **7-day horizon**, after being fed a 9-day input window of past observations/data.  
 
 
 
 The mechanism explained above is generic and can be applied in whichever event the user is interested in
 monitoring the public opinion. 
 
-We were interested in presidential elections so we applied the mechanism in
+We were interested in **presidential elections** so we applied the mechanism in
 US-2016 and US-2020 elections. The respective application datasets were found in:
 
 1. https://www.kaggle.com/paulrohan2020/2016-usa-presidential-election-tweets61m-rows
@@ -46,10 +46,10 @@ US-2016 and US-2020 elections. The respective application datasets were found in
 ### Project Organization
 
 
-* Descriptor directory
+* **Descriptor directory**
 
 
--Descriptor_getter directory contains the following:
+  -*Descriptor_getter* directory contains the following:
 
 1. Input_dataset - A sample of cleaned tweets from the application datasets.
 
@@ -66,14 +66,12 @@ US-2016 and US-2020 elections. The respective application datasets were found in
 
 
 
-- The two notebooks named US_2016/2020_visualizations.ipynb were used to produce some fruitful
-plots of the extracted descriptors as time series. 
+  - The two notebooks named US_2016/2020_visualizations.ipynb were used to produce some fruitful
+plots of the extracted descriptors as time series.  
+  
+  
 
-
----
-
-
-How to get the descriptors:
+*How to get the descriptors:*
 
 Run on cmd : python tweet_descriptor_getter.py Input_dataset/Cleaned_dataset/2016_US_election_tweets_0_cleaned.csv
 
@@ -85,7 +83,7 @@ The output csv is saved in the same directory with the input csv with "_results"
 -----------------------------
 
 
-* Forecasting directory
+* **Forecasting directory**
 
 The same procedure/code was executed for both the US-2016 and US-2020 data. For saving space,
 I included only the US-2016 experiment. Specifically you'll find:
@@ -94,15 +92,13 @@ I included only the US-2016 experiment. Specifically you'll find:
 
 2. datasets used - input data used for the experiment
 
-3. forecasting results - results obtained from applying forecasting to US-2016 descriptors time series (testing was done on the last 7 days of the time series).
+3. forecasting results - results obtained from applying forecasting to US-2016 descriptors time series (testing was done on the last 7 days of the time series).  
+  
+  
 
 
 
-
----
-
-
-Steps to use this code for forecasting:  
+*Steps to use this code for forecasting:*  
 (All runs are performed in CMD)
 
 
@@ -111,40 +107,40 @@ and use train_test_splitt.py to split it (you need to define the train-test port
 to be equal with the forecast horizon parameter chosen for the forecasting - in my case it was 7)
 
 
-IMPORTANT: In results\optimized_configurations directory there is a file with the optimized configs that we use for our model, so make sure you will not delete that file. 
+**IMPORTANT**: In results\optimized_configurations directory there is a file with the optimized configs that we use for our model, so make sure you will not delete that file.   
 
 
 
-1. In project root directory (ipath = input path, opath = output path) , (i used R-4.1.0): 
+1. In project root directory (ipath = input path, opath = output path) , (i used R-4.1.0):   
 
 a. Run: "C:\Program Files\R\R-4.1.0\bin\Rscript.exe" preprocess_scripts/kaggle_dataset_preprocess.R
 
-ipath=./datasets/text_data/time_series_train.csv , opath=./datasets/text_data/dataset.txt
+ipath=./datasets/text_data/time_series_train.csv , opath=./datasets/text_data/dataset.txt  
 
 
 
 b. Run: "C:\Program Files\R\R-4.1.0\bin\Rscript.exe" preprocess_scripts/kaggle_results_preprocess.R
 
-ipath=./datasets/text_data/time_series_test.csv , opath=./datasets/text_data/results.txt
+ipath=./datasets/text_data/time_series_test.csv , opath=./datasets/text_data/results.txt  
 
 
 
 
 c. Run: "C:\Program Files\R\R-4.1.0\bin\Rscript.exe" preprocess_scripts/moving_window/kaggle_train_dataset_preprocess.R
 
-ipath=./datasets/text_data/dataset.txt , opath=./datasets/text_data/moving_window/stl_7i9.txt
+ipath=./datasets/text_data/dataset.txt , opath=./datasets/text_data/moving_window/stl_7i9.txt  
 
 
 
 d. Run: "C:\Program Files\R\R-4.1.0\bin\Rscript.exe" preprocess_scripts/moving_window/kaggle_test_dataset_preprocess.R
 
-ipath=./datasets/text_data/dataset.txt , opath=./datasets/text_data/moving_window/test_7i9.txt
+ipath=./datasets/text_data/dataset.txt , opath=./datasets/text_data/moving_window/test_7i9.txt  
 
 
 
 e. Run: "C:\Program Files\R\R-4.1.0\bin\Rscript.exe" preprocess_scripts/moving_window/kaggle_validation_dataset_preprocess.R
 
-ipath=./datasets/text_data/dataset.txt , opath=./datasets/text_data/moving_window/stl_7i9v.txt
+ipath=./datasets/text_data/dataset.txt , opath=./datasets/text_data/moving_window/stl_7i9v.txt  
 
 
 
@@ -152,16 +148,16 @@ f. In preprocess_scripts/moving_window directory:
 
 Run: python create_tfrecords.py , to create the 3 binary files from the 3 previously created text files
 
-ipath=./datasets/text_data/moving_window/ , opath=./datasets/binary_data/moving_window/
-
-
+ipath=./datasets/text_data/moving_window/ , opath=./datasets/binary_data/moving_window/  
+  
+  
 
 2. In project root directory:
 
 Run: python generic_model_trainer.py --dataset_name dokimh --contain_zero_values 1 --initial_hyperparameter_values_file configs/initial_hyperparameter_values/kaggle_web_traffic_adagrad --binary_train_file_train_mode datasets/binary_data/moving_window/stl_7i9.tfrecords --binary_valid_file_train_mode datasets/binary_data/moving_window/stl_7i9v.tfrecords --binary_train_file_test_mode datasets/binary_data/moving_window/stl_7i9v.tfrecords --binary_test_file_test_mode datasets/binary_data/moving_window/test_7i9.tfrecords --txt_test_file datasets/text_data/moving_window/test_7i9.txt --actual_results_file datasets/text_data/results.txt --input_size 9 --forecast_horizon 7 --optimizer cocob --hyperparameter_tuning smac --model_type stacking --input_format moving_window --with_accumulated_error 1 --integer_conversion 0 --address_near_zero_instability 0 --seasonality_period 7 --original_data_file datasets/text_data/dataset.txt --seed 1
 (change arguments if needed)
 
-opath= results/rnn_forecasts
+opath= results/rnn_forecasts  
 
 
 
@@ -169,7 +165,7 @@ opath= results/rnn_forecasts
 
 Run: python ensembling_forecasts.py --dataset_name dokimh
 
-opath= results/ensemble_rnn_forecasts
+opath= results/ensemble_rnn_forecasts  
 
 
 
@@ -177,7 +173,7 @@ opath= results/ensemble_rnn_forecasts
 
 Run: "C:\Program Files\R\R-4.1.0\bin\Rscript.exe" error_calculator/moving_window/final_evaluation-error_calculation.R results/ensemble_rnn_forecasts/dokimh_ensemble /results/ensemble_errors/ /results/ensemble_processed_rnn_forecasts/ dokimh_ensemble_error datasets/text_data/moving_window/test_7i9.txt datasets/text_data/results.txt datasets/text_data/dataset.txt 9 7 1 0 0 7 0
 
-opath= results/ensemble_errors
+opath= results/ensemble_errors  
 
 
 
@@ -185,8 +181,8 @@ opath= results/ensemble_errors
 
 Run: python error_summary_generator.py --dataset_name dokimh --is_merged_cluster_result 0
 
-opath= results/ensemble_errors/aggregate_errors
-
+opath= results/ensemble_errors/aggregate_errors  
+  
 
 
 
