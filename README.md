@@ -46,11 +46,10 @@ US-2016 and US-2020 elections. The respective application datasets were found in
 
 
 -----------
-
-
+</br>
 
 ### Project Organization
-
+</br>
 
 * **Descriptor directory**
 
